@@ -7,9 +7,9 @@ cache:
   yarn: true
 
 install:
-  make install
+  - make install
 
 script:
-  make build
-  make test
-  make test/pretty
+  - make build
+  - make test
+  - make test/pretty
