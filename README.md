@@ -1,6 +1,10 @@
+[![Build Status](https://travis-ci.org/BrunoBernardino/snailjs.svg?branch=master)](https://travis-ci.org/BrunoBernardino/snailjs)
+
 # SnailJS - Slow and thoughtful development with Node and React
 
 SnailJS is a starter/boilerplate app that attempts to define some structure for projects where the people involved want to dedicate some thought into how they will be built, don't want to give up control, and want to be fairly optimized.
+
+![Screenshot](https://user-images.githubusercontent.com/1239616/52240145-13119380-28c8-11e9-9ebb-c10286368153.png)
 
 It's not very opinionated. It's meant to build an app using [Webpack](https://webpack.js.org) (for dev/prod optimizations), [Babel](https://babeljs.io) (for the nice `import` syntax and other goodies), a [Koa backend](https://koajs.com), a [React frontend](https://reactjs.org), and [Flow static typing](https://flow.org), with some common needs like routing, absolute paths, SASS parsing, tests, and build processes.
 
