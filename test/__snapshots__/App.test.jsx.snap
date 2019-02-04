@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App mounts without failing 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="Counter"
+  >
+    <h1
+      className="sc-bxivhb pvIKL"
+    >
+      Welcome to SnailJS!
+    </h1>
+    <img
+      alt="Logo"
+      src="/static/logo.png"
+    />
+    <button
+      className="sc-ifAKCX cDCjQp sc-htpNat bAwlFJ"
+      onClick={[Function]}
+      type="button"
+    >
+      This button has been clicked 
+      0
+       time
+      s
+      !
+    </button>
+    <section
+      className="sc-EHOje gZvwDD"
+    >
+      <a
+        className="sc-bdVaJa hRyZOQ"
+        href="/6"
+        onClick={[Function]}
+      >
+        Start with 6 clicks
+      </a>
+      
+      <a
+        className="sc-bwzfXH hgmTZQ"
+        href="/server?apiKey="
+      >
+        Server-only route
+      </a>
+    </section>
+  </div>
+</div>
+`;
