@@ -1,4 +1,4 @@
-.PHONY: setup install start test test/build test/pretty lint build pretty
+.PHONY: setup install start test test/ci test/build test/pretty lint build pretty
 
 setup:
 	make install
@@ -12,6 +12,10 @@ start:
 test:
 	make lint
 	yarn test
+
+test/ci:
+	make lint
+	yarn test/ci
 
 test/build:
 	make build

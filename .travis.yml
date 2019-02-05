@@ -17,7 +17,7 @@ install:
 
 script:
   - make build
-  - CI=true make test
+  - CI=true make test/ci
   - make test/pretty
 
 notifications:
