@@ -19,3 +19,6 @@ script:
   - make build
   - CI=true make test
   - make test/pretty
+
+notifications:
+  email: false

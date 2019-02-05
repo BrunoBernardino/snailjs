@@ -10,13 +10,13 @@
     "watch": "NODE_ENV=development concurrently --kill-others-on-fail \"webpack --watch\" \"sleep 3 && nodemon build/server.js\" \"sleep 4 && open http://localhost:3100\"",
     "start": "yarn clean && yarn watch",
     "start/prod": "NODE_ENV=production node build/server.js",
-    "lint": "./node_modules/.bin/eslint . --ext .js --ext .jsx",
-    "test": "./node_modules/.bin/jest",
+    "lint": "eslint . --ext .js --ext .jsx",
+    "test": "jest --detectOpenHandles",
     "postinstall": "yarn flow-typed install",
-    "postbuild": "./node_modules/.bin/react-snap && yarn remove-public-server-routes",
+    "postbuild": "react-snap && yarn remove-public-server-routes",
     "remove-public-server-routes": "rm -fr build/public/server build/public/200.html build/public/404.html",
-    "pretty": "./node_modules/.bin/prettier --write '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'",
-    "pretty/test": "./node_modules/.bin/prettier --check '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'"
+    "pretty": "prettier --write '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'",
+    "pretty/test": "prettier --check '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'"
   },
   "dependencies": {
     "@babel/runtime": "7.3.1",
