@@ -13,7 +13,7 @@
     "lint": "eslint . --ext .js --ext .jsx",
     "test": "jest --detectOpenHandles",
     "test/ci": "jest --forceExit",
-    "postinstall": "yarn flow-typed install",
+    "prepare": "yarn flow-typed install",
     "postbuild": "react-snap && yarn remove-public-server-routes",
     "remove-public-server-routes": "rm -fr build/public/server build/public/200.html build/public/404.html",
     "pretty": "prettier --write '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'",

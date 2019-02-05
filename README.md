@@ -22,7 +22,7 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 `make install` or `make setup` for getting everything setup
 
-`make start` for dev build. Check if you want to create a `.env.local` file with unversioned overrides.
+`make start` for dev build. Check if you want to update your `.env.local` file (it's unversioned)
 
 `make lint` to run linting and flow type checking
 
@@ -36,6 +36,68 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 `make test/build` for prod build and serving it locally in production mode
 
-## TODOs
+`make deploy` will deploy a server to DigitalOcean with the app (read more below)
 
-- [ ] Terraform file/structure for deploying to DigitalOcean with nginx, forever, SSL, and update script
+`make deploy/update` will update the frontend and backend of a deployed server (so `make deploy` has to have been executed first)
+
+`make deploy/destroy` will destroy the infra/server
+
+## Deployment
+
+Note this is a simple deployment setup. It's scalable, but not necessarily following best security practices. Ideally you'll have/use a non-root user, VPNs/VPCs, load balancers, and all that, but you never need that upfront, so this is meant to help get your feet off the ground and into space, not Mars (and it should define a structure to get there when you need to).
+
+Before you run `make deploy`, set the variables inside the `deploy/variables.tf` file. Here's a sample with fake data that explains where/how to get them:
+
+```terraform
+variable "do_token" {
+  default = "Token From DigitalOcean. Get it at https://cloud.digitalocean.com/account/api/tokens"
+}
+variable "pub_key" {
+  default = "~/.ssh/id_rsa.pub"
+}
+variable "pvt_key" {
+  default = "~/.ssh/id_rsa"
+}
+variable "ssh_fingerprint" {
+  default = "The MD5 Fingerprint from your SSH Key at https://cloud.digitalocean.com/account/security"
+}
+```
+
+That assumes DigitalOcean already has your `~/.ssh/id_rsa.pub` key in [https://cloud.digitalocean.com/account/security](https://cloud.digitalocean.com/account/security).
+
+After you run `make deploy` you'll be able to `ssh root@IP_ADDRESS` and `cd /app && ./stop.sh`, `cd /app && ./start.sh`, or`cd /app && ./restart.sh`. Ideally you'll also setup a cron or manually run `certbot renew` to update the SSL certificates.
+
+If you need to update the app, just run `IP=IP_ADDRESS make deploy/update` and it'll build the assets, push them over, and restart the server.
+
+### First Deployment
+
+There's a couple of manual things you need to do right now for the first time deploying (this can totally be improved with some more dedicated time), like setting up nginx properly and the certificates:
+
+```bash
+ssh root@IP_ADDRESS
+
+certbot --nginx -d example.com -d www.example.com
+# I'd recommend option 2 (redirect HTTP to HTTPS).
+
+nano /etc/nginx/sites-enabled/default
+# Add the content below inside the main `server` block, near the bottom, for the `listen 443` piece:
+```
+
+```nginx
+location / {
+  proxy_pass http://localhost:3000/;
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection 'upgrade';
+  proxy_set_header Host $host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_cache_bypass $http_upgrade;
+}
+```
+
+Now you can `cd /app && ./restart.sh`
+
+## TODO:
+
+- [ ] Optimize prod build. 1MB is a lot for something so small.

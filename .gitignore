@@ -3,3 +3,7 @@ node_modules
 *.log
 build
 .env.local
+deploy/.terraform
+deploy/*.tfstate
+deploy/*.tfstate.backup
+deploy/variables.tf

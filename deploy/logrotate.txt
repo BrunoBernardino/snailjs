@@ -1,0 +1,13 @@
+/app/*.log {
+    daily
+    rotate 7
+    compress
+    nomail
+    noolddir
+    missingok
+    notifempty
+    sharedscripts
+    postrotate
+        /app/restart.sh
+    endscript
+}
