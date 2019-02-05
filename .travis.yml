@@ -17,5 +17,5 @@ install:
 
 script:
   - make build
-  - make test
+  - CI=true make test
   - make test/pretty

@@ -35,7 +35,7 @@ const eslint = {
 };
 
 // https://github.com/amilajack/eslint-plugin-flowtype-errors/issues/123
-if (process.env.CI === true) {
+if (process.env.CI) {
   eslint.rules['flowtype-errors/show-errors'] = 'off';
 }
 
