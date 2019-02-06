@@ -37,10 +37,10 @@ pretty:
 	yarn pretty
 
 deploy:
-	make build
 	cd deploy && terraform init && terraform apply --auto-approve
 
 deploy/update:
+	test -n "$(IP)" || (echo "Please define an IP variable" ; exit 1)
 	-ssh root@${IP} '/app/stop.sh'
 	ssh root@${IP} 'rm -fr /app/server.js /app/public'
 	scp "package.json" root@${IP}:"/app/package.json"

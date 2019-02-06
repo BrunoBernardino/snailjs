@@ -1,5 +1,7 @@
-# /bin/bash
+#!/bin/bash
 
-/etc/init.d/nginx stop
+set -ex
 
-forever stop app
+/etc/init.d/nginx stop || true
+
+forever stop app || true

@@ -1,3 +1,5 @@
-# /bin/bash
+#!/bin/bash
 
-cd /app && yarn install --production
+set -ex
+
+cd /app && ~/.yarn/bin/yarn install --production

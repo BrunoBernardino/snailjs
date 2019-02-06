@@ -1,4 +1,8 @@
-# /bin/bash
+#!/bin/bash
+
+set -ex
+
+cd /app
 
 LOG=app.log
 

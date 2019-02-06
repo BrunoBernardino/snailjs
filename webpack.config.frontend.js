@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 require('dotenv-flow').config();
 
 const config = {
@@ -54,7 +55,13 @@ const config = {
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, 'frontend', 'static'), to: 'static' },
     ]),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_KEY'])
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_KEY']),
+    new TerserPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
   ],
 };
 

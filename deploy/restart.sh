@@ -1,4 +1,6 @@
-# /bin/bash
+#!/bin/bash
+
+set -ex
 
 cd /app && ./stop.sh
 

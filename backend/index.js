@@ -4,6 +4,8 @@ import Router from 'koa-router';
 import mount from 'koa-mount';
 import serve from 'koa-static';
 import favicon from 'koa-favicon';
+import logger from 'koa-logger';
+import compress from 'koa-compress';
 
 require('dotenv-flow').config();
 
@@ -12,19 +14,12 @@ const SERVER_PORT = process.env.BACKEND_PORT || 5000;
 const app = new Koa();
 const router = new Router();
 
-const logger = async (ctx, next) => {
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-  console.log(`${ctx.method} ${ctx.url}: ${ctx.status} - ${ms}ms`);
-};
-
 const initServer = async () => {
   router.get('/server', (ctx) => {
     ctx.body = 'Server render!!';
   });
 
-  app.use(logger);
+  app.use(logger());
 
   if (process.env.NODE_ENV === 'development') {
     const koaWebpack = require('koa-webpack'); // eslint-disable-line import/no-extraneous-dependencies
@@ -39,6 +34,8 @@ const initServer = async () => {
     };
     const hotReloader = await koaWebpack(options);
     app.use(hotReloader);
+  } else {
+    app.use(compress());
   }
 
   app.use(favicon(path.join(__dirname, 'public', 'static', 'logo.png')));

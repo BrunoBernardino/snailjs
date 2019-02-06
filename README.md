@@ -36,9 +36,9 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 `make test/build` for prod build and serving it locally in production mode
 
-`make deploy` will deploy a server to DigitalOcean with the app (read more below)
+`make deploy` will deploy a server to DigitalOcean with the app (read more below). Make sure to run `make build` first
 
-`make deploy/update` will update the frontend and backend of a deployed server (so `make deploy` has to have been executed first)
+`make deploy/update` will update the frontend and backend of a deployed server (so `make deploy` has to have been executed first, and make sure to have run `make build`)
 
 `make deploy/destroy` will destroy the infra/server
 
@@ -96,8 +96,4 @@ location / {
 }
 ```
 
-Now you can `cd /app && ./restart.sh`
-
-## TODO:
-
-- [ ] Optimize prod build. 1MB is a lot for something so small.
+Now start the app: `/app/restart.sh`.
