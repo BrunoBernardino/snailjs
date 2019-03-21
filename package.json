@@ -51,6 +51,7 @@
     "babel-eslint": "10.0.1",
     "babel-jest": "24.0.0",
     "babel-loader": "8.0.5",
+    "babel-plugin-styled-components": "1.10.0",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "concurrently": "4.1.0",
     "copy-webpack-plugin": "4.6.0",

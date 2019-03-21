@@ -1,5 +1,5 @@
-// flow-typed signature: 225656ba2479b8c1dd8b10776913e73f
-// flow-typed version: b7d0245d00/koa_v2.x.x/flow_>=v0.47.x
+// flow-typed signature: 9c019a02dfd744f5b066806f72ac0a11
+// flow-typed version: 5a6a98aaa2/koa_v2.x.x/flow_>=v0.47.x <=v0.92.x
 
 /*
  * Type def from from source code of koa.
@@ -16,7 +16,7 @@ declare module 'koa' {
   declare class Server extends net$Server {
     listen(port?: number, hostname?: string, backlog?: number, callback?: Function): Server,
     listen(path: string, callback?: Function): Server,
-    listen(handle: Object, callback?: Function): Server,
+    listen(handle: {}, callback?: Function): Server,
     close(callback?: Function): Server,
     maxHeadersCount: number,
     setTimeout(msecs: number, callback: Function): Server,
@@ -145,7 +145,7 @@ declare module 'koa' {
     request: Request,
 
     // docs/api/response.md#L113.
-    body: string|Buffer|stream$Stream|Object|Array<mixed>|null, // JSON contains null
+    body: string | Buffer | stream$Stream | JSONObject | JSONArray | null, // JSON contains null
     etag: string,
     header: SimpleHeader,
     headers: SimpleHeader, // alias as header
@@ -225,7 +225,7 @@ declare module 'koa' {
     res: http$ServerResponse,
     respond?: boolean, // should not be used, allow bypassing koa application.js#L193
     response: Response,
-    state: Object,
+    state: {},
 
     // context.js#L55
     assert: (test: mixed, status: number, message?: string, opts?: mixed) => void,
@@ -233,7 +233,7 @@ declare module 'koa' {
     // if (!(err instanceof Error)) err = new Error(`non-error thrown: ${err}`);
     onerror: (err?: mixed) => void,
     // context.md#L88
-    throw: ( status: number, msg?: string, opts?: Object) => void,
+    throw: ( status: number, msg?: string, opts?: {}) => void,
     toJSON(): ContextJSON,
     inspect(): ContextJSON,
 
