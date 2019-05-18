@@ -6,9 +6,7 @@ module.exports = {
   name: 'backend',
   target: 'node',
   mode: process.env.NODE_ENV,
-  entry: [
-    path.resolve(__dirname, 'backend', 'index.js'),
-  ],
+  entry: [path.resolve(__dirname, 'backend', 'index.js')],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'server.js',

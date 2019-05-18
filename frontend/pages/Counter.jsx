@@ -52,7 +52,7 @@ export default class Counter extends Component<Props, State> {
     };
   }
 
-  onLogoClick = () => {
+  onButtonClick = () => {
     this.setState((state) => ({
       counter: state.counter + 1,
     }));
@@ -70,7 +70,7 @@ export default class Counter extends Component<Props, State> {
         </Helmet>
         <Title>Welcome to SnailJS!</Title>
         <img alt="Logo" src="/static/logo.png" />
-        <StyledButton type="button" onClick={this.onLogoClick}>
+        <StyledButton type="button" onClick={this.onButtonClick}>
           This button has been clicked {counter} time{counter === 1 ? '' : 's'}!
         </StyledButton>
         <LinkWrapper>

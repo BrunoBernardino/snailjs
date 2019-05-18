@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "name": "snailjs",
+  "alias": ["snailjs.brunobernardino.now.sh"],
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@now/node-server"
+    },
+    {
+      "src": "**",
+      "use": "@now/static"
+    }
+  ],
+  "routes": [
+    { "src": "/main.js", "dest": "/public/main.js" },
+    { "src": "/.*", "dest": "/server.js" }
+  ],
+  "github": {
+    "enabled": false
+  }
+}

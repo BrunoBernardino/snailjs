@@ -1,5 +1,5 @@
-// flow-typed signature: 9c019a02dfd744f5b066806f72ac0a11
-// flow-typed version: 5a6a98aaa2/koa_v2.x.x/flow_>=v0.47.x <=v0.92.x
+// flow-typed signature: 2f74d7a92ea1e01e4ee797c15673b1b1
+// flow-typed version: 14fe0603a9/koa_v2.x.x/flow_>=v0.94.x
 
 /*
  * Type def from from source code of koa.
@@ -11,19 +11,6 @@
  * breaking: ctx.throw([status], [msg], [properties]) (caused by http-errors (#957) )
 **/
 declare module 'koa' {
-  // Currently, import type doesn't work well ?
-  // so copy `Server` from flow/lib/node.js#L820
-  declare class Server extends net$Server {
-    listen(port?: number, hostname?: string, backlog?: number, callback?: Function): Server,
-    listen(path: string, callback?: Function): Server,
-    listen(handle: {}, callback?: Function): Server,
-    close(callback?: Function): Server,
-    maxHeadersCount: number,
-    setTimeout(msecs: number, callback: Function): Server,
-    timeout: number,
-  }
-  declare type ServerType = Server;
-
   declare type JSON = | string | number | boolean | null | JSONObject | JSONArray;
   declare type JSONObject = { [key: string]: JSON };
   declare type JSONArray = Array<JSON>;
@@ -41,7 +28,7 @@ declare module 'koa' {
   declare type RequestInspect = void|RequestJSON;
   declare type Request = {
     app: Application,
-    req: http$IncomingMessage,
+    req: http$IncomingMessage<>,
     res: http$ServerResponse,
     ctx: Context,
     response: Response,
@@ -139,7 +126,7 @@ declare module 'koa' {
   };
   declare type Response = {
     app: Application,
-    req: http$IncomingMessage,
+    req: http$IncomingMessage<>,
     res: http$ServerResponse,
     ctx: Context,
     request: Request,
@@ -196,8 +183,8 @@ declare module 'koa' {
   };
   // https://github.com/pillarjs/cookies
   declare type CookiesSetOptions = {
-    domain: string, // domain of the cookie (no default).
-    maxAge: number, // milliseconds from Date.now() for expiry
+    domain?: string, // domain of the cookie (no default).
+    maxAge?: number, // milliseconds from Date.now() for expiry
     expires?: Date, //cookie's expiration date (expires at the end of session by default).
     path?: string, //  the path of the cookie (/ by default).
     secure?: boolean, // false by default for HTTP, true by default for HTTPS
@@ -220,7 +207,7 @@ declare module 'koa' {
     cookies: Cookies,
     name?: string, // ?
     originalUrl: string,
-    req: http$IncomingMessage,
+    req: http$IncomingMessage<>,
     request: Request,
     res: http$ServerResponse,
     respond?: boolean, // should not be used, allow bypassing koa application.js#L193
@@ -233,7 +220,7 @@ declare module 'koa' {
     // if (!(err instanceof Error)) err = new Error(`non-error thrown: ${err}`);
     onerror: (err?: mixed) => void,
     // context.md#L88
-    throw: ( status: number, msg?: string, opts?: {}) => void,
+    throw: ( status: number, msg?: string, opts?: {} ) => void,
     toJSON(): ContextJSON,
     inspect(): ContextJSON,
 
@@ -299,17 +286,17 @@ declare module 'koa' {
   declare class Application extends events$EventEmitter {
     context: Context,
     // request handler for node's native http server.
-    callback: () => (req: http$IncomingMessage, res: http$ServerResponse) => void,
+    callback: () => (req: http$IncomingMessage<>, res: http$ServerResponse) => void,
     env: string,
     keys?: Array<string>|Object, // https://github.com/crypto-utils/keygrip
     middleware: Array<Middleware>,
     proxy: boolean, // when true proxy header fields will be trusted
     request: Request,
     response: Response,
-    server: Server,
+    server: http$Server,
     subdomainOffset: number,
 
-    listen: $PropertyType<Server, 'listen'>,
+    listen: $PropertyType<http$Server, 'listen'>,
     toJSON(): ApplicationJSON,
     inspect(): ApplicationJSON,
     use(fn: Middleware): this,

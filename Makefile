@@ -1,4 +1,4 @@
-.PHONY: setup install start test test/ci test/build test/pretty lint build pretty deploy deploy/update deploy/destroy
+.PHONY: setup install start test test/ci test/build test/pretty lint build pretty deploy deploy/update deploy/destroy deploy/serverless
 
 setup:
 	make install
@@ -53,3 +53,12 @@ deploy/update:
 deploy/destroy:
 	@echo "Are you sure you want to destroy the server/infra? (y/n)" && read ans && [ $${ans:-n} == y ]
 	cd deploy && terraform destroy --auto-approve
+
+deploy/serverless:
+	cp now-deploy.json build/now.json
+	cp package.json build/
+	cp yarn.lock build/
+	cp .env build/
+	cp .env.production build/
+	cp now-cleanup.js build/
+	cd build && node now-cleanup.js && rm package.json && mv package-clean.json package.json && rm now-cleanup.js && now --target production

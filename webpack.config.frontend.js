@@ -36,7 +36,7 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-                includePaths: ['frontend'],
+              includePaths: ['frontend'],
             },
           },
         ],
@@ -66,4 +66,3 @@ const config = {
 };
 
 module.exports = config;
-

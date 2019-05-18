@@ -42,7 +42,13 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 `make deploy/destroy` will destroy the infra/server
 
-## Deployment
+`make deploy/serverless` will deploy the whole app using `now`, in a serverless fashion. Learn more below. Make sure to run `make build` first
+
+## Deployment ("cool kids" serverless)
+
+This is using [`now`](https://zeit.co/now) (install via `npm i now -g`) and quite unoptimized, but any other alternatives should be simple to adapt. Also, please note for serverless you might want to split/isolate the frontend and backend to keep things a bit faster, but it's not mandatory.
+
+## Deployment ("old school" server)
 
 Note this is a simple deployment setup. It's scalable, but not necessarily following best security practices. Ideally you'll have/use a non-root user, VPNs/VPCs, load balancers, and all that, but you never need that upfront, so this is meant to help get your feet off the ground and into space, not Mars (and it should define a structure to get there when you need to).
 
