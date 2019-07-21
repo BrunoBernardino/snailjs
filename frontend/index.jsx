@@ -9,7 +9,7 @@ const load = () =>
     <AppContainer>
       <App />
     </AppContainer>,
-    root
+    root,
   );
 
 // This is needed for Hot Module Replacement

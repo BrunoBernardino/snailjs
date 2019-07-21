@@ -12,6 +12,11 @@ const eslint = {
     'react/jsx-one-expression-per-line': 'off',
     'react/destructuring-assignment': 'off',
     'no-console': 'off',
+    'global-require': 'off',
+    'object-curly-newline': 'off',
+    'arrow-parens': ['error', 'always'],
+    'implicit-arrow-linebreak': 'off',
+    'no-restricted-globals': 'off',
   },
   settings: {
     flowtype: {

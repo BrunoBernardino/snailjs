@@ -8,7 +8,7 @@ exports[`App mounts without failing 1`] = `
     className="Counter"
   >
     <h1
-      className="Counter__Title-sc-15vxb1x-0 frBzxp"
+      className="Counter__Title-sc-10vsor9-0 klMuRp"
     >
       Welcome to SnailJS!
     </h1>
@@ -17,7 +17,7 @@ exports[`App mounts without failing 1`] = `
       src="/static/logo.png"
     />
     <button
-      className="Counter__StyledButton-sc-15vxb1x-1 ixzgSS Button__StyledButton-sc-1at07yy-0 cVUxdz"
+      className="Counter__StyledButton-sc-10vsor9-1 fsLBEZ Button__StyledButton-sc-1cac6om-0 iAKrns"
       onClick={[Function]}
       type="button"
     >
@@ -28,10 +28,10 @@ exports[`App mounts without failing 1`] = `
       !
     </button>
     <section
-      className="Counter__LinkWrapper-sc-15vxb1x-2 isVwwO"
+      className="Counter__LinkWrapper-sc-10vsor9-2 eyxfVM"
     >
       <a
-        className="Link__StyledLink-sc-1ukbgas-0 huLbfE"
+        className="Link__StyledLink-sc-1fkd123-0 fxHNR"
         href="/6"
         onClick={[Function]}
       >
@@ -39,7 +39,7 @@ exports[`App mounts without failing 1`] = `
       </a>
       
       <a
-        className="Link__StyledAnchor-sc-1ukbgas-1 cZfESO"
+        className="Link__StyledAnchor-sc-1fkd123-1 hZqbSL"
         href="/server?apiKey="
       >
         Server-only route

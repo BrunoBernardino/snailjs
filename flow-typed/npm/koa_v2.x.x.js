@@ -1,5 +1,5 @@
-// flow-typed signature: 2f74d7a92ea1e01e4ee797c15673b1b1
-// flow-typed version: 14fe0603a9/koa_v2.x.x/flow_>=v0.94.x
+// flow-typed signature: c2f17b798abc17656e0a2c9630211811
+// flow-typed version: 013186cc8a/koa_v2.x.x/flow_>=v0.94.x
 
 /*
  * Type def from from source code of koa.
@@ -11,7 +11,7 @@
  * breaking: ctx.throw([status], [msg], [properties]) (caused by http-errors (#957) )
 **/
 declare module 'koa' {
-  declare type JSON = | string | number | boolean | null | JSONObject | JSONArray;
+  declare type JSON = | string | number | boolean | null | void | JSONObject | JSONArray;
   declare type JSONObject = { [key: string]: JSON };
   declare type JSONArray = Array<JSON>;
 
@@ -212,7 +212,7 @@ declare module 'koa' {
     res: http$ServerResponse,
     respond?: boolean, // should not be used, allow bypassing koa application.js#L193
     response: Response,
-    state: {},
+    state: {[string]: any},
 
     // context.js#L55
     assert: (test: mixed, status: number, message?: string, opts?: mixed) => void,
