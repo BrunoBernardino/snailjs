@@ -61,4 +61,4 @@ deploy/serverless:
 	cp .env build/
 	cp .env.production build/
 	cp now-cleanup.js build/
-	cd build && node now-cleanup.js && rm package.json && mv package-clean.json package.json && rm now-cleanup.js && now --target production
+	cd build && node now-cleanup.js && rm package.json && mv package-clean.json package.json && rm now-cleanup.js && now --prod

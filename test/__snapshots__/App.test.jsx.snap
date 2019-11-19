@@ -17,7 +17,7 @@ exports[`App mounts without failing 1`] = `
       src="/static/logo.png"
     />
     <button
-      className="Counter__StyledButton-sc-10vsor9-1 fsLBEZ Button__StyledButton-sc-1cac6om-0 iAKrns"
+      className="Button__StyledButton-sc-1cac6om-0 iAKrns Counter__StyledButton-sc-10vsor9-1 fsLBEZ"
       onClick={[Function]}
       type="button"
     >

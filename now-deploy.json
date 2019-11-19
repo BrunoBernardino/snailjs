@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "snailjs",
-  "alias": ["snailjs.brunobernardino.now.sh"],
+  "alias": ["snailjs.brn.sh"],
   "builds": [
     {
       "src": "server.js",

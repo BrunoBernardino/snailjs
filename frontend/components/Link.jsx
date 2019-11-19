@@ -1,5 +1,5 @@
 // @flow
-import React, { type Node, Fragment } from 'react';
+import React, { type Node } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -33,7 +33,7 @@ type Props = {
 };
 
 const LinkWrapper = ({ to, href, children, className }: Props) => (
-  <Fragment>
+  <>
     {to && (
       <StyledLink to={to} href={href} className={className}>
         {children}
@@ -44,7 +44,7 @@ const LinkWrapper = ({ to, href, children, className }: Props) => (
         {children}
       </StyledAnchor>
     )}
-  </Fragment>
+  </>
 );
 
 LinkWrapper.defaultProps = {

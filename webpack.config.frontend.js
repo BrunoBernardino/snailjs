@@ -36,7 +36,9 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: ['frontend'],
+              sassOptions: {
+                includePaths: ['frontend'],
+              },
             },
           },
         ],

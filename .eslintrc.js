@@ -11,6 +11,7 @@ const eslint = {
     'flowtype-errors/show-errors': 'error',
     'react/jsx-one-expression-per-line': 'off',
     'react/destructuring-assignment': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'no-console': 'off',
     'global-require': 'off',
     'object-curly-newline': 'off',

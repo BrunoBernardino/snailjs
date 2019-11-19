@@ -10,7 +10,7 @@ It's not very opinionated. It's meant to build an app using [Webpack](https://we
 
 Other than that, it doesn't force you to specific tech solutions like how to code split, [redux](https://redux.js.org), [mobx](https://mobx.js.org), [mustache](https://mustache.github.io), [mongo](https://www.mongodb.com), [mysql](mysql), etc. There are other tools for that kind of opinionated app building like [SailsJS](https://sailsjs.com).
 
-If you need a simple frontend app, try [create-react-app](https://facebook.github.io/create-react-app/). If you need a bit more complexity (or a "webpacked" node app), [Neutrino](https://neutrinojs.org) is pretty good as well.
+If you need a simple frontend app, try [create-react-app](https://facebook.github.io/create-react-app/). If you need a bit more complexity (or a "webpacked" node app), [Neutrino](https://neutrinojs.org) is pretty good as well. For frontend and backend coupled things I've been enjoying a lot of [Next.js](https://nextjs.org).
 
 This really serves the purpose of someone wanting/needing something like SailsJS but without all the magic/opinionated code.
 
