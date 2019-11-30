@@ -14,10 +14,6 @@ apt-get -y install gcc g++ make build-essential software-properties-common zlib1
 
 npm install -g forever
 
-curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.13.0
-
-export PATH=$HOME/.yarn/bin:$PATH
-
 add-apt-repository -y ppa:certbot/certbot
 
 apt-get -y update

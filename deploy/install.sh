@@ -2,4 +2,4 @@
 
 set -ex
 
-cd /app && ~/.yarn/bin/yarn install --production
+cd /app && npm install --production
