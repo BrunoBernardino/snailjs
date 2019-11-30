@@ -6,35 +6,35 @@ setup:
 install:
 	-cp -n .env .env.local
 	-cp -n deploy/variables.tf.sample deploy/variables.tf
-	yarn install
+	npm install
 
 start:
-	yarn start
+	npm start
 
 test:
 	make lint
-	yarn test
+	npm test
 
 test/ci:
 	make lint
-	yarn test/ci
+	npm run test/ci
 
 test/build:
 	make build
-	yarn start/prod
+	npm run start/prod
 
 test/pretty:
-	yarn pretty/test
+	npm run pretty/test
 
 lint:
-	yarn lint
-	yarn flow
+	npm run lint
+	./node_modules/.bin/flow
 
 build:
-	yarn build
+	npm run build
 
 pretty:
-	yarn pretty
+	npm run pretty
 
 deploy:
 	cd deploy && terraform init && terraform apply --auto-approve
@@ -57,7 +57,7 @@ deploy/destroy:
 deploy/serverless:
 	cp now-deploy.json build/now.json
 	cp package.json build/
-	cp yarn.lock build/
+	cp package-lock.json build/
 	cp .env build/
 	cp .env.production build/
 	cp now-cleanup.js build/

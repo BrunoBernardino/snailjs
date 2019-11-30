@@ -9,15 +9,15 @@
   },
   "scripts": {
     "clean": "rm -fr build",
-    "build": "yarn clean && NODE_ENV=production webpack",
-    "watch": "NODE_ENV=development concurrently --kill-others-on-fail \"webpack --watch\" \"sleep 6 && nodemon build/server.js\" \"wait-on tcp:localhost:3100 && open http://localhost:3100\"",
-    "start": "yarn clean && yarn watch",
+    "build": "npm run clean && NODE_ENV=production webpack",
+    "watch": "NODE_ENV=development concurrently --prefix=name --prefix-length=30 --kill-others-on-fail -n \"webpack,server,browser\" \"webpack --watch\" \"wait-on build/server.js && nodemon build/server.js\" \"wait-on http-get://localhost:3100 && open http://localhost:3100\"",
+    "start": "npm run clean && npm run watch",
     "start/prod": "NODE_ENV=production node build/server.js",
     "lint": "eslint . --ext .js --ext .jsx",
     "test": "jest --detectOpenHandles",
     "test/ci": "jest --forceExit",
-    "prepare": "yarn flow-typed install",
-    "postbuild": "react-snap && yarn remove-public-server-routes",
+    "prepare": "flow-typed install",
+    "postbuild": "react-snap && npm run remove-public-server-routes",
     "remove-public-server-routes": "rm -fr build/public/server build/public/200.html build/public/404.html",
     "pretty": "prettier --write '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'",
     "pretty/test": "prettier --check '{frontend,backend,test,__mocks__}/**/*.{js,jsx,scss}'"
@@ -109,7 +109,11 @@
       "node_modules/*",
       "frontend/*",
       "flow-typed/*",
-      "build/public/*"
+      "build/public/*",
+      "package.json",
+      "package-lock.json",
+      "Makefile",
+      "README.md"
     ]
   },
   "reactSnap": {

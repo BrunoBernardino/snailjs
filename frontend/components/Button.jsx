@@ -1,10 +1,10 @@
 // @flow
 import React, { type Node } from 'react';
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
 import { css } from 'utils/constants';
 
-const StyledButton = styled.button`
+const StyledButton: StyledComponent<{}, {}, {}> = styled.button`
   margin: 1em auto;
   padding: 1em 1.5em;
   font-size: 1.2em;

@@ -1,4 +1,4 @@
-// This script is necessary only because `now` uses `yarn install` instead of `yarn install --production`
+// This script is necessary only because `now` uses `npm install` instead of `npm install --production`
 
 const fs = require('fs');
 const packageJson = require('./package.json');

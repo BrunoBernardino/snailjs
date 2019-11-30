@@ -1,5 +1,5 @@
-// flow-typed signature: 9595d08b68243bde57e24d04dce74acf
-// flow-typed version: 902ad5f93f/koa-router_v7.2.x/flow_>=v0.25.x
+// flow-typed signature: 95d0159c259fc57ab6505fc0f8cec8cc
+// flow-typed version: c6154227d1/koa-router_v7.2.x/flow_>=v0.104.x
 
 /**
  * @flow
@@ -22,7 +22,8 @@ declare module "koa-router" {
       prefix?: string,
       sensitive?: boolean,
       strict?: boolean,
-      methods?: Array<string>
+      methods?: Array<string>,
+      ...
     }): Router;
 
     get(
@@ -108,7 +109,8 @@ declare module "koa-router" {
     allowedMethods(options?: {
       throw?: boolean,
       notImplemented?: () => any,
-      methodNotAllowed?: () => any
+      methodNotAllowed?: () => any,
+      ...
     }): KoaRouter$Middleware;
 
     param(param: string, middleware: KoaRouter$ParamMiddleware): this;

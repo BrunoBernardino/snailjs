@@ -16,7 +16,7 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 ## Requirements
 
-`node` (ideally via `nvm`, so `.nvmrc` is respected) and `yarn`.
+`node` (ideally via `nvm`, so `.nvmrc` is respected).
 
 ## Development
 
