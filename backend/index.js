@@ -37,7 +37,9 @@ const initServer = async () => {
     ctx.body = 'Server render!!';
   });
 
-  app.use(logger());
+  if (process.env.NODE_ENV !== 'test') {
+    app.use(logger());
+  }
 
   if (process.env.NODE_ENV === 'development') {
     const koaWebpack = require('koa-webpack'); // eslint-disable-line import/no-extraneous-dependencies

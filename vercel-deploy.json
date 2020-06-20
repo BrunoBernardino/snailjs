@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "snailjs",
   "alias": ["snailjs.brn.sh"],
   "builds": [
     {

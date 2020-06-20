@@ -1,17 +1,12 @@
-// flow-typed signature: 1c4e296059d348bd2c77a87b4bd7971e
-// flow-typed version: c6154227d1/koa_v2.x.x/flow_>=v0.104.x
+// flow-typed signature: 003f6bf32e094d5bbd6ce9dd58e73b0c
+// flow-typed version: c6154227d1/koa_v2.0.x/flow_>=v0.104.x
 
 /*
  * Type def from from source code of koa.
- * this: https://github.com/koajs/koa/commit/08eb1a20c3975230aa1fe1c693b0cd1ac7a0752b
- * previous: https://github.com/koajs/koa/commit/fabf5864c6a5dca0782b867a263b1b0825a05bf9
- *
- * Changelog
- * breaking: remove unused app.name
- * breaking: ctx.throw([status], [msg], [properties]) (caused by http-errors (#957) )
+ * this: https://github.com/koajs/koa/commit/fabf5864c6a5dca0782b867a263b1b0825a05bf9
 **/
 declare module 'koa' {
-  declare type JSON = | string | number | boolean | null | void | JSONObject | JSONArray;
+  declare type JSON = | string | number | boolean | null | JSONObject | JSONArray;
   declare type JSONObject = { [key: string]: JSON, ... };
   declare type JSONArray = Array<JSON>;
 
@@ -135,7 +130,7 @@ declare module 'koa' {
     request: Request,
     // docs/api/response.md#L113.
     // JSON contains null
-    body: string | Buffer | stream$Stream | JSONObject | JSONArray | null,
+    body: string | Buffer | stream$Stream | JSONObject | null,
     etag: string,
     header: SimpleHeader,
     // alias as header
@@ -214,7 +209,7 @@ declare module 'koa' {
   // `application.createContext` & `context.js`
   declare type Context = {
     // props added by middlewares.
-    [key: string]: any,
+    [key: string]: mixed,
     accept: $PropertyType<Request, 'accept'>,
     app: Application,
     cookies: Cookies,
@@ -227,14 +222,16 @@ declare module 'koa' {
     // should not be used, allow bypassing koa application.js#L193
     respond?: boolean,
     response: Response,
-    state: { [string]: any, ... },
+    state: {...},
     // context.js#L55
     assert: (test: mixed, status: number, message?: string, opts?: mixed) => void,
     // context.js#L107
     // if (!(err instanceof Error)) err = new Error(`non-error thrown: ${err}`);
     onerror: (err?: mixed) => void,
-    // context.md#L88
-    throw: ( status: number, msg?: string, opts?: {...} ) => void,
+    // context.js#L70
+    throw: (( statusOrErr: string|number|Error, errOrStatus?: string|number|Error,
+      opts?: {...}) => void) &
+      (( statusOrErr: string|number|Error, opts?: Object) => void),
     toJSON(): ContextJSON,
     inspect(): ContextJSON,
     // ToDo: add const for some props,
@@ -302,6 +299,7 @@ declare module 'koa' {
     env: string,
     keys?: Array<string>|Object, // https://github.com/crypto-utils/keygrip
     middleware: Array<Middleware>,
+    name?: string, // optionally give your application a name
     proxy: boolean, // when true proxy header fields will be trusted
     request: Request,
     response: Response,

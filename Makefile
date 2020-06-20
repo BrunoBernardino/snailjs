@@ -1,44 +1,54 @@
-.PHONY: setup install start test test/ci test/build test/pretty lint build pretty deploy deploy/update deploy/destroy deploy/serverless
-
+.PHONY: setup
 setup:
 	make install
 
+.PHONY: install
 install:
 	-cp -n .env .env.local
 	-cp -n deploy/variables.tf.sample deploy/variables.tf
 	npm install
 
+.PHONY: start
 start:
 	npm start
 
+.PHONY: test
 test:
 	make lint
 	npm test
 
+.PHONY: test/ci
 test/ci:
 	make lint
 	npm run test/ci
 
+.PHONY: test/build
 test/build:
 	make build
 	npm run start/prod
 
+.PHONY: test/pretty
 test/pretty:
 	npm run pretty/test
 
+.PHONY: lint
 lint:
 	npm run lint
 	./node_modules/.bin/flow
 
+.PHONY: build
 build:
 	npm run build
 
+.PHONY: pretty
 pretty:
 	npm run pretty
 
+.PHONY: deploy
 deploy:
 	cd deploy && terraform init && terraform apply --auto-approve
 
+.PHONY: deploy/update
 deploy/update:
 	test -n "$(IP)" || (echo "Please define an IP variable" ; exit 1)
 	-ssh root@${IP} '/app/stop.sh'
@@ -50,15 +60,17 @@ deploy/update:
 	ssh root@${IP} '/app/install.sh'
 	ssh root@${IP} '/app/start.sh'
 
+.PHONY: deploy/destroy
 deploy/destroy:
 	@echo "Are you sure you want to destroy the server/infra? (y/n)" && read ans && [ $${ans:-n} == y ]
 	cd deploy && terraform destroy --auto-approve
 
+.PHONY: deploy/serverless
 deploy/serverless:
-	cp now-deploy.json build/now.json
+	cp vercel-deploy.json build/vercel.json
 	cp package.json build/
 	cp package-lock.json build/
 	cp .env build/
 	cp .env.production build/
-	cp now-cleanup.js build/
-	cd build && node now-cleanup.js && rm package.json && mv package-clean.json package.json && rm now-cleanup.js && now --prod
+	cp vercel-cleanup.js build/
+	cd build && node vercel-cleanup.js && rm package.json && mv package-clean.json package.json && rm vercel-cleanup.js && vercel --prod

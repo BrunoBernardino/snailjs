@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/BrunoBernardino/snailjs.svg?branch=master)](https://travis-ci.org/BrunoBernardino/snailjs)
-
 # SnailJS - Slow and thoughtful development with Node and React
+
+[![](https://github.com/BrunoBernardino/snailjs/workflows/Run%20Tests/badge.svg)](https://github.com/BrunoBernardino/snailjs/actions?workflow=Run+Tests)
 
 SnailJS is a starter/boilerplate app that attempts to define some structure for projects where the people involved want to dedicate some thought into how they will be built, don't want to give up control, and want to be fairly optimized.
 
@@ -42,11 +42,11 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 `make deploy/destroy` will destroy the infra/server
 
-`make deploy/serverless` will deploy the whole app using `now`, in a serverless fashion. Learn more below. Make sure to run `make build` first
+`make deploy/serverless` will deploy the whole app using `vercel`, in a serverless fashion. Learn more below. Make sure to run `make build` first
 
 ## Deployment ("cool kids" serverless)
 
-This is using [`now`](https://zeit.co/now) (install via `npm i now -g`) and quite unoptimized, but any other alternatives should be simple to adapt. Also, please note for serverless you might want to split/isolate the frontend and backend to keep things a bit faster, but it's not mandatory.
+This is using [`vercel`](https://vercel.com/) (install via `npm i vercel -g`) and quite unoptimized, but any other alternatives should be simple to adapt. Also, please note for serverless you might want to split/isolate the frontend and backend to keep things a bit faster, but it's not mandatory.
 
 ## Deployment ("old school" server)
 
