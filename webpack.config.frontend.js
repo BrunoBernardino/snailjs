@@ -54,9 +54,11 @@ const config = {
       template: path.resolve(__dirname, 'frontend', 'index.html'),
       filename: path.resolve(__dirname, 'build', 'public', 'index.html'),
     }),
-    new CopyWebpackPlugin([
-      { from: path.resolve(__dirname, 'frontend', 'static'), to: 'static' },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'frontend', 'static'), to: 'static' },
+      ],
+    }),
     new webpack.EnvironmentPlugin(['NODE_ENV', 'API_KEY']),
     new TerserPlugin({
       cache: true,

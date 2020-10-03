@@ -1,7 +1,3 @@
-.PHONY: setup
-setup:
-	make install
-
 .PHONY: install
 install:
 	-cp -n .env .env.local
@@ -21,6 +17,11 @@ test:
 test/ci:
 	make lint
 	npm run test/ci
+
+.PHONY: test/update
+test/update:
+	make lint
+	npm test -- -u
 
 .PHONY: test/build
 test/build:

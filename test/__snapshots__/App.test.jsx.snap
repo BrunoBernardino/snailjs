@@ -8,7 +8,7 @@ exports[`App mounts without failing 1`] = `
     className="Counter"
   >
     <h1
-      className="Counter__Title-sc-10vsor9-0 klMuRp"
+      className="Counter__Title-sc-10vsor9-0 jjPXlF"
     >
       Welcome to SnailJS!
     </h1>
@@ -17,7 +17,7 @@ exports[`App mounts without failing 1`] = `
       src="/static/logo.png"
     />
     <button
-      className="Button__StyledButton-sc-1cac6om-0 iAKrns Counter__StyledButton-sc-10vsor9-1 fsLBEZ"
+      className="Button__StyledButton-sc-1cac6om-0 ktMTmI Counter__StyledButton-sc-10vsor9-1 ekyFLZ"
       onClick={[Function]}
       type="button"
     >
@@ -28,10 +28,10 @@ exports[`App mounts without failing 1`] = `
       !
     </button>
     <section
-      className="Counter__LinkWrapper-sc-10vsor9-2 eyxfVM"
+      className="Counter__LinkWrapper-sc-10vsor9-2 eOBwDy"
     >
       <a
-        className="Link__StyledLink-sc-1fkd123-0 fxHNR"
+        className="Link__StyledLink-sc-1fkd123-0 cBpuPy"
         href="/6"
         onClick={[Function]}
       >
@@ -39,10 +39,17 @@ exports[`App mounts without failing 1`] = `
       </a>
       
       <a
-        className="Link__StyledAnchor-sc-1fkd123-1 hZqbSL"
+        className="Link__StyledAnchor-sc-1fkd123-1 dZzGHa"
         href="/server?apiKey="
       >
         Server-only route
+      </a>
+      
+      <a
+        className="Link__StyledAnchor-sc-1fkd123-1 dZzGHa"
+        href="https://github.com/BrunoBernardino/snailjs"
+      >
+        GitHub
       </a>
     </section>
   </div>

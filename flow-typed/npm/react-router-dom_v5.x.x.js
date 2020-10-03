@@ -1,5 +1,5 @@
-// flow-typed signature: 33bc320ebb5343629e228a9caa367310
-// flow-typed version: c4f47bdda4/react-router-dom_v5.x.x/flow_>=v0.104.x
+// flow-typed signature: 2d02538a529a09fdbf202a871fbb5c75
+// flow-typed version: 5f4b3cb313/react-router-dom_v5.x.x/flow_>=v0.104.x
 
 declare module "react-router-dom" {
   declare export var BrowserRouter: React$ComponentType<{|
@@ -40,17 +40,20 @@ declare module "react-router-dom" {
 
   // NOTE: Below are duplicated from react-router. If updating these, please
   // update the react-router and react-router-native types as well.
-  declare export type Location = {
+  declare export type Location = $ReadOnly<{
     pathname: string,
     search: string,
     hash: string,
+    state?: any,
+    key?: string,
     ...
-  };
+  }>;
 
   declare export type LocationShape = {
     pathname?: string,
     search?: string,
     hash?: string,
+    state?: any,
     ...
   };
 

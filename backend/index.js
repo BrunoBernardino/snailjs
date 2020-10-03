@@ -73,11 +73,13 @@ const initServer = async () => {
 
   app.on('error', errorHandler);
 
-  app.listen(SERVER_PORT);
+  const server = app.listen(SERVER_PORT);
 
   console.log(`Listening on http://localhost:${SERVER_PORT}`);
+
+  return server;
 };
 
-initServer();
+export const server = initServer();
 
 export default app;

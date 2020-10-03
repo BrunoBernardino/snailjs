@@ -85,6 +85,7 @@ export default class Counter extends Component<Props, State> {
             </Link>
           )}
           <Link href={`/server?apiKey=${apiKey}`}>Server-only route</Link>
+          <Link href="https://github.com/BrunoBernardino/snailjs">GitHub</Link>
         </LinkWrapper>
       </div>
     );
