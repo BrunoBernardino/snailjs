@@ -4,16 +4,16 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@now/node-server"
+      "use": "@vercel/node"
     },
     {
-      "src": "**",
-      "use": "@now/static"
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     { "src": "/main.js", "dest": "/public/main.js" },
-    { "src": "/.*", "dest": "/server.js" }
+    { "src": "/(.*)", "dest": "/server.js" }
   ],
   "github": {
     "enabled": false
