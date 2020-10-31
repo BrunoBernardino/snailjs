@@ -39,8 +39,8 @@
     "build",
   ],
   "include": [
-    "frontend/**/*.ts",
-    "backend/**/*.tsx",
-    "test/**/*.ts"
+    "frontend/**/*.tsx",
+    "backend/**/*.ts",
+    "test/**/*.tsx"
   ]
 }
