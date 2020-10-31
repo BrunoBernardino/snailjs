@@ -36,6 +36,7 @@ make deploy  # will deploy a server to DigitalOcean with the app (read more belo
 make deploy/update  # will update the frontend and backend of a deployed server (so `make deploy` has to have been executed first, and make sure to have run `make build`)
 make deploy/destroy  # will destroy the infra/server
 make deploy/serverless  # will deploy the whole app using `vercel`, in a serverless fashion. Learn more below. Make sure to run `make build` first
+```
 
 ## Deployment ("cool kids" serverless)
 
