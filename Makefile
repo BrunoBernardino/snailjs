@@ -35,7 +35,6 @@ test/pretty:
 .PHONY: lint
 lint:
 	npm run lint
-	./node_modules/.bin/flow
 
 .PHONY: build
 build:
@@ -63,7 +62,7 @@ deploy/update:
 
 .PHONY: deploy/destroy
 deploy/destroy:
-	@echo "Are you sure you want to destroy the server/infra? (y/n)" && read ans && [ $${ans:-n} == y ]
+	@echo "Are you sure you want to destroy the server/infra? (y/n)" && read answer && [ $${answer:-n} == y ]
 	cd deploy && terraform destroy --auto-approve
 
 .PHONY: deploy/serverless

@@ -6,7 +6,7 @@ SnailJS is a starter/boilerplate app that attempts to define some structure for 
 
 ![Screenshot](https://user-images.githubusercontent.com/1239616/52240145-13119380-28c8-11e9-9ebb-c10286368153.png)
 
-It's not very opinionated. It's meant to build an app using [Webpack](https://webpack.js.org) (for dev/prod optimizations), [Babel](https://babeljs.io) (for the nice `import` syntax and other ES6+ goodies), a [Koa backend](https://koajs.com), a [React frontend](https://reactjs.org), and [Flow static typing](https://flow.org), with some common needs like routing, absolute paths, SASS parsing, tests, and build processes.
+It's not very opinionated. It's meant to build an app using [Webpack](https://webpack.js.org) (for dev/prod optimizations), [Babel](https://babeljs.io) (for the nice `import` syntax and other ES6+ goodies), a [Koa backend](https://koajs.com), a [React frontend](https://reactjs.org), and [TypeScript](https://typescriptlang.org) (if you prefer [Flow static typing](https://flow.org), [check the last commit with it](https://github.com/BrunoBernardino/snailjs/tree/7727b8880dbc6b736521a46385fe0cf531d0bf1a)), with some common needs like routing, absolute paths, SASS parsing, tests, and build processes.
 
 Other than that, it doesn't force you to specific tech solutions like how to code split, [redux](https://redux.js.org), [mobx](https://mobx.js.org), [mustache](https://mustache.github.io), [mongo](https://www.mongodb.com), [mysql](mysql), etc. There are other tools for that kind of opinionated app building like [SailsJS](https://sailsjs.com).
 
@@ -20,31 +20,22 @@ This really serves the purpose of someone wanting/needing something like SailsJS
 
 ## Development
 
-`make install` for getting everything setup
+Here's a list of the available commands:
 
-`make start` for dev build. Check if you want to update your `.env.local` file (it's unversioned)
-
-`make lint` to run linting and flow type checking
-
-`make test` to run `make lint` and tests
-
-`make test/update` to run `make lint` and tests, updating snapshots
-
-`make pretty` to run `prettier` on all code
-
-`make test/pretty` to check if `prettier` needs to change anything
-
-`make build` for prod build
-
-`make test/build` to run `make build` and serve it locally in production mode
-
-`make deploy` will deploy a server to DigitalOcean with the app (read more below). Make sure to run `make build` first
-
-`make deploy/update` will update the frontend and backend of a deployed server (so `make deploy` has to have been executed first, and make sure to have run `make build`)
-
-`make deploy/destroy` will destroy the infra/server
-
-`make deploy/serverless` will deploy the whole app using `vercel`, in a serverless fashion. Learn more below. Make sure to run `make build` first
+```bash
+make install  # for getting everything setup
+make start  # for dev build. Check if you want to update your `.env.local` file (it's unversioned)
+make lint  # to run linting and TypeScript checking
+make test  # to run `make lint` and tests
+make test/update  # to run `make lint` and tests, updating snapshots
+make pretty  # to run `prettier` on all code
+make test/pretty  # to check if `prettier` needs to change anything
+make build  # for prod build
+make test/build  # to run `make build` and serve it locally in production mode
+make deploy  # will deploy a server to DigitalOcean with the app (read more below). Make sure to run `make build` first
+make deploy/update  # will update the frontend and backend of a deployed server (so `make deploy` has to have been executed first, and make sure to have run `make build`)
+make deploy/destroy  # will destroy the infra/server
+make deploy/serverless  # will deploy the whole app using `vercel`, in a serverless fashion. Learn more below. Make sure to run `make build` first
 
 ## Deployment ("cool kids" serverless)
 

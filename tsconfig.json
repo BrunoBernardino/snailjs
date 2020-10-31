@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "components/*": [
+        "frontend/components/*"
+      ],
+      "pages/*": [
+        "frontend/pages/*"
+      ],
+      "static/*": [
+        "frontend/static/*"
+      ],
+      "utils/*": [
+        "frontend/utils/*"
+      ],
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+  ],
+  "include": [
+    "frontend/**/*.ts",
+    "backend/**/*.tsx",
+    "test/**/*.ts"
+  ]
+}

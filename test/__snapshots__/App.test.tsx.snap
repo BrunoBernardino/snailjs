@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App mounts without failing 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="Counter"
+  >
+    <h1
+      className="Counter__Title-b0wwob-0 glgZNT"
+    >
+      Welcome to SnailJS!
+    </h1>
+    <img
+      alt="Logo"
+      src="/static/logo.png"
+    />
+    <button
+      className="Button__StyledButton-sc-1x2cl8u-0 klTcTB Counter__StyledButton-b0wwob-1 bYBYHX"
+      onClick={[Function]}
+      type="button"
+    >
+      This button has been clicked 
+      0
+       time
+      s
+      !
+    </button>
+    <section
+      className="Counter__LinkWrapper-b0wwob-2 ciPeeU"
+    >
+      <a
+        className="Link__StyledLink-sc-11vfae7-0 gFEbfZ"
+        href="/6"
+        onClick={[Function]}
+      >
+        Start with 6 clicks
+      </a>
+      
+      <a
+        className="Link__StyledAnchor-sc-11vfae7-1 hJWsgh"
+        href="/server?apiKey="
+      >
+        Server-only route
+      </a>
+      
+      <a
+        className="Link__StyledAnchor-sc-11vfae7-1 hJWsgh"
+        href="https://github.com/BrunoBernardino/snailjs"
+      >
+        GitHub
+      </a>
+    </section>
+  </div>
+</div>
+`;

@@ -3,14 +3,14 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-require('dotenv-flow').config();
+require('dotenv').config();
 
 const config = {
   name: 'frontend',
   target: 'web',
   mode: process.env.NODE_ENV,
   entry: {
-    app: './frontend/index.jsx',
+    app: './frontend/index.tsx',
   },
   output: {
     path: path.resolve(__dirname, 'build', 'public'),
@@ -21,7 +21,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -47,7 +47,7 @@ const config = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'frontend'), 'node_modules'],
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   plugins: [
     new HtmlWebPackPlugin({
