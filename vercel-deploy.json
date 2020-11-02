@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": ["snailjs.brn.sh"],
+  "alias": ["snailjs.onbrn.com"],
   "builds": [
     {
       "src": "server.js",
